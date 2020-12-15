@@ -4,9 +4,13 @@ import BaseLayout from '../component/Layout/BaseLayout'
 class Portfolio extends Component {
 
     render() {
+
+        const {myAppProps} = this.props
+
         return (
             <BaseLayout>
-                <p> Portfolio Page</p>
+                <p className = "customClassFromSCSS" > Portfolio Page with global style passed in</p>
+                <p>{myAppProps}</p>
             </BaseLayout>
         )
     }

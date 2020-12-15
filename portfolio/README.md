@@ -110,3 +110,68 @@
 
     export default Header
     ~~~
+#### Styling options
+
+1) Add basic styling after installing `sass` from the terminal `yarn    
+    - add sass` and create   `main.scss` inside the `styles` folder
+    - global styling must be added from `_app.js`
+    - `styled jsx` is added to `Header.js`
+    ~~~ js
+    // _app.js
+    // import '../styles/globals.css'
+    import '../styles/main.scss'  // for a global CSS file
+
+    // other page components are passed into MyApp
+    // styles
+    function MyApp({ Component, pageProps }) {
+        return <Component {...pageProps} myAppProps = "Passed in from MyApp in _App"/>
+    }
+
+    export default MyApp
+    ~~~
+
+
+    ~~~ scss
+    .customClassFromSCSS {
+        color: dodgerblue;
+    }
+    ~~~
+
+    ~~~ js
+    // portfolio.js
+    import React, {Component} from 'react'
+    import BaseLayout from '../component/Layout/BaseLayout'
+
+    class Portfolio extends Component {
+
+        render() {
+
+            const {myAppProps} = this.props
+
+            return (
+                <BaseLayout>
+                    <p className = "customClassFromSCSS" > Portfolio Page with global style passed in</p>
+                    <p>{myAppProps}</p>
+                </BaseLayout>
+            )
+        }
+
+    }
+
+    export default Portfolio
+    ~~~
+
+    ~~~ js
+    // Header.js
+    ...
+    <Link href = "/cv" >
+        <a> CV </a>
+    </Link>
+    <style jsx >
+        {`
+            .customClass {
+            color: deeppink;    }
+        
+        `}
+    </style> 
+    ~~~

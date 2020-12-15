@@ -7,8 +7,9 @@ class Header extends React.Component {
     render() {
         return (
             <div>
+                <p className = "customClass"> Header p tag Styled with styled jsx </p>
                 <Link href = "/" >
-                    <a> Home </a>
+                    <a style = {{'fontsize': '20px', 'color': 'seagreen'}}> Home inline-styled </a>
                 </Link>
                 <Link href = "/portfolio" >
                     <a> Portfolio </a>
@@ -19,6 +20,15 @@ class Header extends React.Component {
                 <Link href = "/cv" >
                     <a> CV </a>
                 </Link>
+                <style jsx >
+                    {`
+                        .customClass {
+                        color: deeppink;    }
+                    
+                    `}
+                </style>    
+
+
             </div>
             
         )
